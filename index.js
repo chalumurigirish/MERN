@@ -1,5 +1,5 @@
 import express from "express";
-// import cors from "cors";
+import cors from "cors";
 import mongoose from "mongoose";
 import * as dotenv from "dotenv";
 import TodoRouter from "./Routes/todo.js";
@@ -11,7 +11,7 @@ const uri = process.env.MONGODB_URI;
 const app = express();
 
 app.use(express.json());
-// app.use(cors());
+app.use(cors());
 
 app.use("/api", TodoRouter);
 
