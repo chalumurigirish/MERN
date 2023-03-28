@@ -4,6 +4,7 @@ const todoSchema = new mongoose.Schema(
   {
     //   _id: "string",
     task: { type: String, required: true },
+    completed: { type: Boolean, default: false },
   },
   {
     versionKey: false,

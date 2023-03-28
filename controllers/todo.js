@@ -23,14 +23,13 @@ export const createTodo = async (req, res) => {
 };
 
 export const updateTodo = async (req, res) => {
-  console.log(req.body);
-  const { task } = req.body;
+  const { task, completed } = req.body;
   const { id } = req.params;
 
   try {
     const updatedTodo = await Todo.findById(id);
     updatedTodo.task = task;
-
+    updatedTodo.completed = completed;
     await updatedTodo.save();
     res.json(updatedTodo);
   } catch (error) {
